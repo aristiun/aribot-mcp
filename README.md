@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/aribot-icon.png" width="96" height="96" alt="Aribot">
+</p>
+
 # Aribot — MCP server for security work
 
 [![Aribot MCP](./connector.png)](https://aristiun.github.io/aribot-mcp/)
@@ -65,7 +69,7 @@ Each call is checked against your company's licence, the OAuth scopes you grante
 
 `generate_threat_model` · `verify_threats_in_code` · `get_traceability` · `get_framework_coverage` · `compliance_status` · `discover_shadow_ai` · `get_api_security` · `get_cloud_compliance` · `get_remediation` · `get_billing`
 
-See the full list and pricing at **https://aribot.ayurak.com**.
+See the full tool list and pricing at **https://ayurak.com/pricing**.
 
 ---
 
