@@ -1,5 +1,9 @@
 # Aribot — MCP server for security work
 
+[![Aribot MCP](./connector.png)](https://aristiun.github.io/aribot-mcp/)
+
+**Live page:** https://aristiun.github.io/aribot-mcp/ · **Product:** https://aribot.ayurak.com · **Registry:** `io.github.aristiun/aribot`
+
 Aribot is a security tool from [Ayurak / Aristiun](https://aribot.ayurak.com), available as a remote **Model Context Protocol (MCP)** server. Connect it to any MCP client — ChatGPT, Gemini, Claude, or your own — and run real security work from the assistant you already use, without switching tools.
 
 > This repository is a public manifest for the hosted server. It contains no product code — only the connection details. The server requires OAuth, so listing its address exposes nothing without an authorized login.
