@@ -12,6 +12,14 @@ Aribot is a security tool from [Ayurak / Aristiun](https://aribot.ayurak.com), a
 
 > This repository is a public manifest for the hosted server. It contains no product code — only the connection details. The server requires OAuth, so listing its address exposes nothing without an authorized login.
 
+## Unified threat modeling — one model, not five tools
+
+Aribot builds **one threat model per system** and layers every discipline onto it — **security** (STRIDE + LINDDUN), **cloud** posture (AWS · Azure · GCP), **compliance** (NIST · ISO 27001 · SOC 2), and the **economics** of each risk (value at risk, cost to fix, dollars saved once healed) — all kept **traceable end to end**:
+
+`Threat → Requirement → Control → Framework → Code → Fix`
+
+Ask for any link in that chain, in either direction, with evidence behind every finding and every fix.
+
 ## What you can do with it
 
 ### Threat modeling
