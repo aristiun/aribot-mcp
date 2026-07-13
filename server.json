@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.aristiun/aribot",
-  "description": "Governed AI security agent: threat modeling, code/cloud/pipeline scanning, shadow-AI, remediation.",
+  "description": "Threat modeling, code/cloud/pipeline scanning, shadow-AI discovery, compliance checks and fixes.",
   "version": "1.0.0",
   "repository": {
     "url": "https://github.com/aristiun/aribot-mcp",

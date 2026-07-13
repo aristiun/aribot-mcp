@@ -1,55 +1,67 @@
-# Aribot — MCP server for AI security & governance
+# Aribot — MCP server for security work
 
-**Aribot** is a governed AI security agent from **[Ayurak / Aristiun](https://aribot.ayurak.com)**, exposed as a remote **Model Context Protocol (MCP)** server. Connect it to ChatGPT, Gemini, Claude, or any MCP client and ask your assistant to threat‑model a design, scan code / cloud / pipelines, find shadow AI, check compliance, and apply fixes — with every call running through one governed, licensed, tenant‑isolated, audited chokepoint.
+Aribot is a security tool from [Ayurak / Aristiun](https://aribot.ayurak.com), available as a remote **Model Context Protocol (MCP)** server. Connect it to any MCP client — ChatGPT, Gemini, Claude, or your own — and run real security work from the assistant you already use, without switching tools.
 
-> This repository is a **public manifest** for the hosted Aribot MCP server. It contains no product source code — just the connection details. The server itself is OAuth‑protected, so listing the endpoint exposes nothing without an authorized token.
+> This repository is a public manifest for the hosted server. It contains no product code — only the connection details. The server requires OAuth, so listing its address exposes nothing without an authorized login.
 
-## Endpoint
+## What you can do with it
+
+### Threat modeling
+- Turn a diagram or a written description of a system into a full threat model
+- STRIDE and LINDDUN coverage, generated per component and per data flow
+- Threats mapped to the security controls, requirements, and compliance frameworks that address them
+- A traceability view from each threat → finding → control → requirement → remediation
+- Re-model as the design changes; link related diagrams and reuse component threat libraries
+
+### Scanning
+- **Code security** — static analysis of a connected repository
+- **Pipeline security** — CI/CD configuration and supply-chain checks
+- **Cloud & compliance** — posture checks across AWS, Azure, and GCP accounts
+- **SBOM** — generate a software bill of materials
+- **Shadow AI & API discovery** — find where AI/LLM use and API endpoints have spread across your estate
+
+### Compliance
+- Coverage and control status against NIST, ISO 27001, SOC 2, and other frameworks
+- See which controls a threat model or scan already satisfies, and where the gaps are
+
+### Vendors
+- Assess a third party's posture and fold it into your own risk view
+
+### Remediation
+- Get a fix for a finding — as code, cloud configuration, or infrastructure-as-code
+- Keep it advisory, or apply it (e.g. open a pull request or push a cloud change) under approval
+
+## Connect
+
+Point any MCP client at the server and complete the OAuth prompt:
+
+```
+https://mcp.aribot.ayurak.com/mcp
+```
 
 | | |
 |---|---|
-| **MCP server** | `https://mcp.aribot.ayurak.com/mcp` |
 | **Transport** | Streamable HTTP |
 | **Auth** | OAuth 2.1 (Authorization Code + PKCE; Dynamic Client Registration) |
 | **Homepage** | https://aribot.ayurak.com |
 
-OAuth is auto‑discovered at `https://mcp.aribot.ayurak.com/.well-known/oauth-authorization-server` (authorization, token, and registration endpoints under `https://api.aribot.ayurak.com/o/`).
+OAuth is discovered automatically at `https://mcp.aribot.ayurak.com/.well-known/oauth-authorization-server`.
 
-## What it does
-
-Ask your AI assistant to:
-
-- **Threat‑model a design** — generate a STRIDE/LINDDUN threat model from a diagram or description
-- **Scan code, pipelines & cloud** — code security, pipeline security, cloud & compliance posture
-- **Find shadow AI & ungoverned APIs** — discover AI/LLM usage and API endpoints across your estate
-- **Check compliance** — framework coverage and control status (NIST, ISO, SOC 2, and more)
-- **Assess vendors** — AI‑assisted third‑party risk
-- **Fix the risks it finds** — governed remediation (advisory or applied)
-
-## Governance (why "governed")
-
-Every capability runs through the same chokepoint:
-
-- **Licensed** — only capabilities your company is licensed for
-- **Scoped** — limited to the OAuth scopes you granted (`read:findings`, `read:threatmodel`, `read:insights`, `run:scan`, `run:codereview`, `write:threatmodel`, `run:remediation`)
-- **Role‑based access** — the right people, the right access
-- **Tenant‑isolated** — your data is never mixed with another company's
-- **Metered** — fair, pay‑as‑you‑go billing
-- **Audited** — every action is logged
-
-## Tools (representative)
-
-`generate_threat_model` · `verify_threats_in_code` · `get_traceability` · `get_framework_coverage` · `compliance_status` · `discover_shadow_ai` · `get_api_security` · `get_cloud_compliance` · `get_remediation` · `get_billing`
-
-## Connect
-
-Point any MCP client at `https://mcp.aribot.ayurak.com/mcp` and complete the OAuth consent when prompted. Example (Claude Code):
+Example (Claude Code):
 
 ```
 claude mcp add --transport http aribot https://mcp.aribot.ayurak.com/mcp
 ```
 
-Learn more and see pricing at **https://aribot.ayurak.com**.
+## Access controls
+
+Each call is checked against your company's licence, the OAuth scopes you granted (`read:findings`, `read:threatmodel`, `read:insights`, `run:scan`, `run:codereview`, `write:threatmodel`, `run:remediation`), your team's roles, and your tenant boundary. Usage is metered, and every action is logged. So you can run security work from an assistant without losing track of who can do what, or which company's data is which.
+
+## Tools
+
+`generate_threat_model` · `verify_threats_in_code` · `get_traceability` · `get_framework_coverage` · `compliance_status` · `discover_shadow_ai` · `get_api_security` · `get_cloud_compliance` · `get_remediation` · `get_billing`
+
+See the full list and pricing at **https://aribot.ayurak.com**.
 
 ---
 
